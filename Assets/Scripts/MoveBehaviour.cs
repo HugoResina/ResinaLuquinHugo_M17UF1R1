@@ -1,4 +1,4 @@
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class MoveBehaviour : MonoBehaviour
@@ -14,16 +14,14 @@ public class MoveBehaviour : MonoBehaviour
 
     public void MoveCharacter(Vector2 direction)
     {
-        _rb.AddForce(direction.normalized * speed * 30);
-
+        //_rb.AddForce(direction.normalized * speed * 30);
+        _rb.linearVelocity = direction.normalized * speed;
     }
     public void Jump(float dir)
     {
-
-      
         
-            _rb.AddForce(new Vector2(0, speed * 100 * dir));
-            //_isJumping = true;
+        _rb.AddForce(new Vector2(0, speed * 100 * dir));
+        //_isJumping = true;
         
     }
    
