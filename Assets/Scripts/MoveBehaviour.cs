@@ -4,7 +4,7 @@ using UnityEngine;
 public class MoveBehaviour : MonoBehaviour
 {
     private Rigidbody2D _rb;
-    public float speed = 2;
+    private float speed = 5;
     //private bool _isJumping = false;
 
     private void Awake()
@@ -15,6 +15,7 @@ public class MoveBehaviour : MonoBehaviour
     public void MoveCharacter(Vector2 direction)
     {
         //_rb.AddForce(direction.normalized * speed * 30);
+        
         _rb.linearVelocity = new Vector2(direction.x * speed, _rb.linearVelocityY);
     }
     public void Jump(float dir)
