@@ -1,14 +1,16 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static InputSystem_Actions;
+
 [RequireComponent (typeof (MoveBehaviour))]
-public class Player : MonoBehaviour, IPlayerActions
+public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     
 {
     private MoveBehaviour _mb;
     private Rigidbody2D _rb;
     private InputSystem_Actions inputAction;
+    private Vector2 _dir;
+
 
     private void Awake()
     {
@@ -40,14 +42,15 @@ public class Player : MonoBehaviour, IPlayerActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        Vector2 dir = context.ReadValue<Vector2>();
-        dir.y = 0;
-        _mb.MoveCharacter(dir);
+        _dir = context.ReadValue<Vector2>();
+        //_dir.y = _rb.linearVelocityY;
+
+
     }
 
     void Update()
     {
-
+        _mb.MoveCharacter(_dir);
     }
 
     public void OnAttack(InputAction.CallbackContext context)
