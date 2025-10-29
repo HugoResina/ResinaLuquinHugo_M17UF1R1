@@ -15,7 +15,7 @@ public class MoveBehaviour : MonoBehaviour
     public void MoveCharacter(Vector2 direction)
     {
         //_rb.AddForce(direction.normalized * speed * 30);
-        _rb.linearVelocity = direction.normalized * speed;
+        _rb.linearVelocity = new Vector2(direction.x * speed, _rb.linearVelocityY);
     }
     public void Jump(float dir)
     {
