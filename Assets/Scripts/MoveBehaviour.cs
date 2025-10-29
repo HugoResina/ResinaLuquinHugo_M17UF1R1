@@ -14,7 +14,7 @@ public class MoveBehaviour : MonoBehaviour
 
     public void MoveCharacter(Vector2 direction)
     {
-        //_rb.AddForce(direction.normalized * speed * 30);
+       
         
         _rb.linearVelocity = new Vector2(direction.x * speed, _rb.linearVelocityY);
     }
@@ -22,8 +22,9 @@ public class MoveBehaviour : MonoBehaviour
     {
         
         _rb.AddForce(new Vector2(0, speed * 100 * dir));
-        //_isJumping = true;
-        
+        _rb.gravityScale *= -1f;
+
+
     }
    
 }

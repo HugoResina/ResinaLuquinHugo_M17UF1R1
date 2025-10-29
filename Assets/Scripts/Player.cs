@@ -10,6 +10,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private Rigidbody2D _rb;
     private InputSystem_Actions inputAction;
     private Vector2 _dir;
+    
 
 
     private void Awake()
@@ -18,6 +19,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         inputAction = new InputSystem_Actions();
         inputAction.Player.SetCallbacks(this);
         _mb = GetComponent<MoveBehaviour>();
+       
+
 
     }
 
@@ -36,7 +39,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         
         _mb.Jump(_rb.gravityScale);
-        _rb.gravityScale *= -1f;
+      
+       
 
     }
 
