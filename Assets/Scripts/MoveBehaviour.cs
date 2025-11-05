@@ -43,7 +43,9 @@ public class MoveBehaviour : MonoBehaviour
         {
             _rb.AddForce(new Vector2(0, speed * 100 * dir));
             _rb.gravityScale *= -1f;
-            _spriteRenderer.flipY = _rb.gravityScale < 0 ? true : false;
+            Vector3 scale = transform.localScale;
+            scale.y *= _rb.gravityScale > 0 ? 1 : -1;
+            transform.localScale = scale;
             _isJumping = true;
         }
 
