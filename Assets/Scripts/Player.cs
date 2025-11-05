@@ -20,8 +20,6 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         inputAction.Player.SetCallbacks(this);
         _mb = GetComponent<MoveBehaviour>();
        
-
-
     }
 
     private void OnEnable()
