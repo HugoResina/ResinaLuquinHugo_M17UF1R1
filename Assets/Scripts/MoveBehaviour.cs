@@ -19,7 +19,7 @@ public class MoveBehaviour : MonoBehaviour
     //private void FixedUpdate()
     //{
     //    RaycastHit hit;
-        
+
     //}
     public void MoveCharacter(Vector2 direction)
     {        
@@ -48,8 +48,6 @@ public class MoveBehaviour : MonoBehaviour
             transform.localScale = scale;
             _isJumping = true;
         }
-
-
 
         _animator.SetBool("IsJumping", _isJumping);
         //añadir raycast que al colisionar con suelo cambie _isjumping a false
