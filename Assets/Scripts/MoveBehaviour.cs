@@ -78,7 +78,7 @@ public class MoveBehaviour : MonoBehaviour
         if (wasJumping != _isJumping) _animator.SetBool("IsJumping", _isJumping);
 
         
-        Debug.DrawRay(origin, direction * groundCheckDistance, hit.collider != null ? Color.green : Color.red);
+        //Debug.DrawRay(origin, direction * groundCheckDistance, hit.collider != null ? Color.green : Color.red);
         
     }
 
