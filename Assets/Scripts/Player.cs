@@ -25,12 +25,14 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private void OnEnable()
     {
         inputAction.Enable();
+        HurtBehaviour.OnPlayerHurt += OnPlayerHurt;
 
     }
 
     private void OnDisable()
     {
         inputAction.Disable();
+        HurtBehaviour.OnPlayerHurt -= OnPlayerHurt;
 
     }
     public void OnJump(InputAction.CallbackContext context)
@@ -48,6 +50,11 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         //_dir.y = _rb.linearVelocityY;
 
 
+    }
+    private void OnPlayerHurt(GameObject player)
+    {
+        Debug.Log("mori");
+        
     }
 
     void Update()

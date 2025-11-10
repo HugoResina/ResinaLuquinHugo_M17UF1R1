@@ -12,8 +12,7 @@ public class MoveBehaviour : MonoBehaviour
 
     [SerializeField] private Transform groundCheckPoint; 
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField]
-    private float groundCheckDistance = 0.15f;
+    [SerializeField] private float groundCheckDistance = 0.15f;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -55,7 +54,7 @@ public class MoveBehaviour : MonoBehaviour
         }
 
         _animator.SetBool("IsJumping", _isJumping);
-        //añadir raycast que al colisionar con suelo cambie _isjumping a false
+      
     }
     private void CheckGround()
     {
