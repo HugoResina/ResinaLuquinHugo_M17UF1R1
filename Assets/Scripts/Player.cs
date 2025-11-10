@@ -10,7 +10,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private Rigidbody2D _rb;
     private InputSystem_Actions inputAction;
     private Vector2 _dir;
-    [SerializeField] private Transform RespawnPoint;
+    [SerializeField] public Transform RespawnPoint;
 
 
 
