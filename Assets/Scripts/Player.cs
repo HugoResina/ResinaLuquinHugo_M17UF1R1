@@ -10,7 +10,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private Rigidbody2D _rb;
     private InputSystem_Actions inputAction;
     private Vector2 _dir;
-    
+    [SerializeField] private Transform RespawnPoint;
+
 
 
     private void Awake()
@@ -53,8 +54,17 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     private void OnPlayerHurt(GameObject player)
     {
-        Debug.Log("mori");
+        //teletransporta
+        player.transform.position = RespawnPoint.position;
         
+        _rb.gravityScale = 1f;
+
+        Vector3 scale = transform.localScale;
+        scale.y = Mathf.Abs(scale.y) * (_rb.gravityScale > 0 ? 1 : -1);
+        transform.localScale = scale;
+
+        _rb.linearVelocity = Vector2.zero;
+
     }
 
     void Update()
