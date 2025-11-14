@@ -54,6 +54,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     private void OnPlayerHurt(GameObject player)
     {
+        //Debug.Log("ay");
         //teletransporta
         player.transform.position = RespawnPoint.position;
         

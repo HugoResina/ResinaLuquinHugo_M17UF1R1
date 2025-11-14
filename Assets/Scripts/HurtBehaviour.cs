@@ -9,13 +9,14 @@ public class HurtBehaviour : MonoBehaviour
     
     public static event Action<GameObject> OnPlayerHurt;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-      
+
         if (((1 << other.gameObject.layer) & targetLayers.value) == 0)
             return;
 
        
         OnPlayerHurt?.Invoke(other.gameObject);
+    
     }
 }

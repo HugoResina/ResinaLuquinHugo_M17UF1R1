@@ -5,8 +5,8 @@ public class Turret : MonoBehaviour
 {
 
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private Transform shootPoint; // punto donde se genera el proyectil
-    [SerializeField] private float fireRate = 1.5f; // segundos entre disparos
+    [SerializeField] private Transform shootPoint; 
+    [SerializeField] private float fireRate = 1.5f; 
     [SerializeField] private float projectileSpeed = 10f;
 
     private void Start()
