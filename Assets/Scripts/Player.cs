@@ -28,6 +28,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private void OnTriggerEnter2D(Collider2D collision)
     {
         shouldMoveBg = false;
+        Bg.linearVelocity = Vector2.zero;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        Debug.Log(shouldMoveBg);
+       
         _dir = context.ReadValue<Vector2>();
         if (shouldMoveBg)
         {
