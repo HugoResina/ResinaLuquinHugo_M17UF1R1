@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private InputSystem_Actions inputAction;
     private Vector2 _dir;
     [SerializeField] public Transform RespawnPoint;
+    [SerializeField] private Rigidbody2D Bg;
+    private bool shouldMoveBg = true;
 
 
 
@@ -22,7 +25,14 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _mb = GetComponent<MoveBehaviour>();
        
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        shouldMoveBg = false;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        shouldMoveBg = true;
+    }
     private void OnEnable()
     {
         inputAction.Enable();
@@ -38,19 +48,26 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(context.performed) 
-        _mb.Jump(_rb.gravityScale);
+        if (context.performed)
+            _mb.Jump(_rb.gravityScale);
       
-       
-
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        Debug.Log(shouldMoveBg);
         _dir = context.ReadValue<Vector2>();
-        //_dir.y = _rb.linearVelocityY;
+        if (shouldMoveBg)
+        {
+            MoveBg(_dir);
+        }
 
 
+
+    }
+    public void MoveBg(Vector2 dir)
+    {
+        Bg.linearVelocity = new Vector2(-dir.x, 0);
     }
     private void OnPlayerHurt(GameObject player)
     {
