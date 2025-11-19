@@ -7,8 +7,11 @@ public class Portal : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        other.transform.position = destination.position;
-        Player player = other.GetComponent<Player>();
-        player.RespawnPoint = destination;
+        if (other.gameObject.layer == 6)
+        {
+            other.transform.position = destination.position;
+            Player player = other.GetComponent<Player>();
+            player.RespawnPoint = destination;
+        }
     }
 }
