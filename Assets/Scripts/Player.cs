@@ -14,6 +14,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     [SerializeField] public Transform RespawnPoint;
     [SerializeField] private Rigidbody2D Bg;
     private bool shouldMoveBg = true;
+    public SawPathFollower saw;
 
 
 
@@ -83,6 +84,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         transform.localScale = scale;
 
         _rb.linearVelocity = Vector2.zero;
+        saw.Restart();
+        
 
     }
 
