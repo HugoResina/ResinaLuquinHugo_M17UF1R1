@@ -94,13 +94,5 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _mb.MoveCharacter(_dir);
     }
 
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
 
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
 }
