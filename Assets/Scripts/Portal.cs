@@ -15,6 +15,10 @@ public class Portal : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
+            AudioSource aSource = GetComponent<AudioSource>();
+            aSource.clip = AudioBehaviour.Instance.clipList[AudioClips.Teleport];
+            aSource.Play();
+
             other.transform.position = destination.position;
             Player player = other.GetComponent<Player>();
             player.RespawnPoint = destination;

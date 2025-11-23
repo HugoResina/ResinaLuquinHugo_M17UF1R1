@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class MostrarTextoAlColisionar : MonoBehaviour
 {
-    public Text textoCanvas; // Texto UI en Canvas
-    private Collider2D colliderObjetivo; // Collider 2D a desactivar
-    public string mensajeInicial = "Has colisionado con el objeto";
-    public string ultimoMensaje = "Último mensaje";
+    public Text textoCanvas; 
+    private Collider2D colliderObjetivo; 
+    public string mensajeInicial;
+    public string ultimoMensaje ;
     private bool textoActivo = false;
     private bool mostrandoUltimoMensaje = false;
     public LayerMask playerLayer;
@@ -27,7 +27,7 @@ public class MostrarTextoAlColisionar : MonoBehaviour
                 mostrandoUltimoMensaje = false;
                 textoActivo = true;
             }
-            // Mostrar texto dependiendo del estado actual (mensaje inicial o último)
+          
             textoCanvas.gameObject.SetActive(true);
             if (mostrandoUltimoMensaje)
                 textoCanvas.text = ultimoMensaje;
@@ -40,7 +40,7 @@ public class MostrarTextoAlColisionar : MonoBehaviour
     {
         if (((1 << other.gameObject.layer) & playerLayer) != 0)
         {
-            // Al salir del trigger solo ocultar texto pero mantener el estado para reanudar diálogo
+            
             textoCanvas.gameObject.SetActive(false);
         }
     }
@@ -51,13 +51,13 @@ public class MostrarTextoAlColisionar : MonoBehaviour
         {
             if (!mostrandoUltimoMensaje)
             {
-                // Mostrar el último mensaje
+               
                 textoCanvas.text = ultimoMensaje;
                 mostrandoUltimoMensaje = true;
             }
             else
             {
-                // Diálogo terminado, desactivar collider y ocultar texto
+              
                 if (colliderObjetivo != null)
                     colliderObjetivo.enabled = false;
                 textoCanvas.gameObject.SetActive(false);
